@@ -23,7 +23,7 @@
     display: -webkit-flex;
     -webkit-flex-grow: 1;
     -webkit-flex-direction: column;
-    background-color: #181818;
+    background-color: @input-background-color;
 
     margin: 0;
 
@@ -58,12 +58,32 @@
   }
 
   .results {
-    background-color: #181818;
-    color: #F8F8F8;
+    background-color: @input-background-color;
+    color: @text-color;
     font-size: @font-size;
 
     a {
-      color: #F8F8F8;
+      color: @text-color;
+    }
+
+    .source-underline {
+      color: @text-color-error;
+    }
+
+    .error {
+      color: @text-color-error;
+    }
+
+    .warning {
+      color: @text-color-warning;
+    }
+
+    .test-failed {
+      color: @text-color-error;
+    }
+
+    .test-passed {
+      color: @text-color-success;
     }
   }
 

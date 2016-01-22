@@ -6,6 +6,7 @@ escape = require 'jsesc'
 ansi   = require 'ansi-html-stream'
 psTree = require 'ps-tree'
 spawn  = require('child_process').spawn
+{simulateColor} = require('./simulate-color')
 {CompositeDisposable} = require 'event-kit'
 
 clickablePaths = require './clickable-paths'
@@ -56,7 +57,7 @@ module.exports = class CargoWrapper extends events.EventEmitter
       stream.on 'data', (data) =>
         @parseStatistics data
         data = data.toString()
-        @emit 'output', clickablePaths.link data
+        @emit 'output', clickablePaths.link(simulateColor data)
         highlights = errorHighlight.highlightMessages data
         @active_highlights.add highlight for highlight in highlights
 
